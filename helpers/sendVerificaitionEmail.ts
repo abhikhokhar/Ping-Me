@@ -1,5 +1,5 @@
 import {resend} from "@/lib/resend";
-import verificationEmail from "@/emails/verificationEmail";
+import VerificationEmail from "@/emails/verificationEmail";
 import { ApiResponse } from "@/types/ApiResponse";
 
 export async function sendVerificationEmail(username: string, email: string, verifycode: string): Promise<ApiResponse>{
@@ -8,7 +8,7 @@ export async function sendVerificationEmail(username: string, email: string, ver
   from: 'onboarding@resend.dev',
   to: email,
   subject: "PingMe - Your Verification Code",
-  react: verificationEmail({username, otp: verifycode}),
+  react: VerificationEmail({username, otp: verifycode}),
 });
         return {
             success: true,
